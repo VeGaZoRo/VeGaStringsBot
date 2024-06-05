@@ -2,11 +2,11 @@ import traceback
 
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
-from VeGaSTRINGBOT import VeGa
+
 from VeGaSTRINGBOT.generate import generate_session, ask_ques, buttons_ques
 
 
-@VeGa.on_callback_query(filters.regex(pattern=r"^(generate|pyrogram|pyrogram1|pyrogram_bot|telethon_bot|telethon)$"))
+@Client.on_callback_query(filters.regex(pattern=r"^(generate|pyrogram|pyrogram1|pyrogram_bot|telethon_bot|telethon)$"))
 async def _callbacks(bot: Client, callback_query: CallbackQuery):
     query = callback_query.matches[0].group(1)
     if query == "generate":

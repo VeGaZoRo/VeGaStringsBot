@@ -9,7 +9,7 @@ from time import time
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from VeGaSTRINGBOT import VeGa
+
 from config import OWNER_ID
 
 
@@ -27,13 +27,13 @@ async def edit_or_reply(msg: Message, **kwargs):
     await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 
-@VeGa.on_edited_message(
+@Client.on_edited_message(
     filters.command("eval")
     & filters.user(OWNER_ID)
     & ~filters.forwarded
     & ~filters.via_bot
 )
-@VeGa.on_message(
+@Client.on_message(
     filters.command("eval")
     & filters.user(OWNER_ID)
     & ~filters.forwarded
@@ -108,13 +108,13 @@ async def executor(client, message):
         await edit_or_reply(message, text=final_output, reply_markup=keyboard)
 
 
-@VeGa.on_callback_query(filters.regex(r"runtime"))
+@Client.on_callback_query(filters.regex(r"runtime"))
 async def runtime_func_cq(_, cq):
     runtime = cq.data.split(None, 1)[1]
     await cq.answer(runtime, show_alert=True)
 
 
-@VeGa.on_callback_query(filters.regex("forceclose"))
+@Client.on_callback_query(filters.regex("forceclose"))
 async def forceclose_command(_, CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
@@ -133,10 +133,10 @@ async def forceclose_command(_, CallbackQuery):
         return
 
 
-@VeGa.on_edited_message(
+@Client.on_edited_message(
     filters.command("sh") & filters.user(OWNER_ID) & ~filters.forwarded & ~filters.via_bot
 )
-@VeGa.on_message(
+@Client.on_message(
     filters.command("sh") & filters.user(OWNER_ID) & ~filters.forwarded & ~filters.via_bot
 )
 async def shellrunner(client, message):

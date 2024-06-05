@@ -1,11 +1,11 @@
 from config import MUST_JOIN
-from VeGaSTRINGBOT import VeGa
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
 
-@VeGa.on_message(filters.incoming & filters.private, group=-1)
+@Client.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(bot: Client, msg: Message):
     if not MUST_JOIN:
         return
@@ -20,8 +20,8 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 usr = await client.get_chat(MUST_JOIN)
-                name = usr.first_name
-                photo = await app.download_media(usr.photo.big_file_id)
+    name = usr.first_name
+    photo = await app.download_media(usr.photo.big_file_id)
                 await msg.reply_photo(
                     photo, caption=f"» ғɪʀsᴛ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ Jᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ [𝖩𝖮𝖨𝖭]({link}) ᴀғᴛᴇʀ Jᴏɪɴ sᴛᴀʀᴛᴇᴅ ᴍᴇ ᴀɢᴀɪɴ !",
                     reply_markup=InlineKeyboardMarkup(

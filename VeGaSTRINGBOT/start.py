@@ -1,13 +1,13 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from VeGaSTRINGBOT import VeGa
+
 from config import OWNER_ID
 
 
 def filter(cmd: str):
     return filters.private & filters.incoming & filters.command(cmd)
 
-@VeGa.on_message(filter("start"))
+@Client.on_message(filter("start"))
 async def start(bot: Client, msg: Message):
     me2 = (await bot.get_me()).mention
     await bot.send_message(

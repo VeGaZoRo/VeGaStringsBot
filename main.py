@@ -10,7 +10,7 @@ logging.basicConfig(
 )
 
 StartTime = time.time()
-VeGa = Client(
+VeGa = VeGa(
     "Anonymous",
     api_id=config.API_ID,
     api_hash=config.API_HASH,

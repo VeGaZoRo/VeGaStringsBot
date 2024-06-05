@@ -1,6 +1,7 @@
 from config import MUST_JOIN
 
-from pyrogram import Client, filters
+from pyrogram import filters
+from pyrogram import Client
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
 from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForbidden
 
@@ -20,7 +21,7 @@ async def must_join_channel(bot: Client, msg: Message):
                 link = chat_info.invite_link
             try:
                 usr = await client.get_chat(MUST_JOIN) 
-    photo = await app.download_media(usr.photo.big_file_id)
+    photo = await app.download_media(usr.photo.id)
                 await msg.reply_photo(
                     photo, caption=f"» ғɪʀsᴛ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ Jᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ [𝖩𝖮𝖨𝖭]({link}) ᴀғᴛᴇʀ Jᴏɪɴ sᴛᴀʀᴛᴇᴅ ᴍᴇ ᴀɢᴀɪɴ !",
                     reply_markup=InlineKeyboardMarkup(

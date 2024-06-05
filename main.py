@@ -10,7 +10,7 @@ logging.basicConfig(
 )
 
 StartTime = time.time()
-app = VeGa(
+VeGa = Client(
     "Anonymous",
     api_id=config.API_ID,
     api_hash=config.API_HASH,
@@ -23,13 +23,13 @@ app = VeGa(
 if __name__ == "__main__":
     print("𝖲𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝖸𝐨𝐮𝐫 𝖲𝐭𝐫𝐢𝐧𝐠 𝖡𝐨𝐭...")
     try:
-        app.start()
+        VeGa.start()
     except (ApiIdInvalid, ApiIdPublishedFlood):
         raise Exception("Your API_ID/API_HASH is not valid.")
     except AccessTokenInvalid:
         raise Exception("Your BOT_TOKEN is not valid.")
-    uname = app.get_me().username
+    uname = VeGa.get_me().username
     print(f"@{uname} 𝖲𝖳𝖠𝖱𝖳𝖤𝖣 𝖲𝖴𝖢𝖤𝖲𝖲𝖥𝖴𝖫𝖫𝖸. 𝖬𝖠𝖣𝖤 𝖡𝖸 @ 𝖣𝖠𝖷𝖷 𝖳𝖤𝖠𝖬 🤗")
     idle()
-    app.stop()
+    VeGa.stop()
     print("𝗕𝗢𝗧 𝗦𝗧𝗢𝗣𝗣𝗘𝗗!")

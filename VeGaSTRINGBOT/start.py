@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-
+from VeGaSTRINGBOT import VeGa
 from config import OWNER_ID
 
 

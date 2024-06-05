@@ -1,6 +1,6 @@
 from pyrogram.types import Message
 from pyrogram import Client, filters
-
+from VeGaSTRINGBOT import VeGa
 from config import OWNER_ID
 from VeGaSTRINGBOT.db.users import add_served_user, get_served_users
 

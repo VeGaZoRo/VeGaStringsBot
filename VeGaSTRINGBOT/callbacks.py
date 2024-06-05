@@ -2,7 +2,7 @@ import traceback
 
 from pyrogram import Client, filters
 from pyrogram.types import CallbackQuery, InlineKeyboardMarkup
-
+from VeGaSTRINGBOT import VeGa
 from VeGaSTRINGBOT.generate import generate_session, ask_ques, buttons_ques
 
 

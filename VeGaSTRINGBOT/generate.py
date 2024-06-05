@@ -1,6 +1,7 @@
 from pyrogram.types import Message
 from telethon import TelegramClient
 from pyrogram import Client, filters
+from VeGaSTRINGBOT import VeGa
 from pyrogram1 import Client as Client1
 from asyncio.exceptions import TimeoutError
 from telethon.sessions import StringSession

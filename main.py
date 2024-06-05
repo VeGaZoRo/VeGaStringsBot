@@ -10,13 +10,13 @@ logging.basicConfig(
 )
 
 StartTime = time.time()
-app = Client(
+app = VeGa(
     "Anonymous",
     api_id=config.API_ID,
     api_hash=config.API_HASH,
     bot_token=config.BOT_TOKEN,
     in_memory=True,
-    plugins=dict(root="DAXXSTRINGBOT"),
+    plugins=dict(root="VeGaSTRINGBOT"),
 )
 
 

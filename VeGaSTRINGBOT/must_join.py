@@ -19,8 +19,7 @@ async def must_join_channel(bot: Client, msg: Message):
                 chat_info = await bot.get_chat(MUST_JOIN)
                 link = chat_info.invite_link
             try:
-                usr = await client.get_chat(MUST_JOIN)
-    name = usr.first_name
+                usr = await client.get_chat(MUST_JOIN) 
     photo = await app.download_media(usr.photo.big_file_id)
                 await msg.reply_photo(
                     photo, caption=f"» ғɪʀsᴛ ʏᴏᴜ ɴᴇᴇᴅ ᴛᴏ Jᴏɪɴ ᴏᴜʀ ᴄʜᴀɴɴᴇʟ [𝖩𝖮𝖨𝖭]({link}) ᴀғᴛᴇʀ Jᴏɪɴ sᴛᴀʀᴛᴇᴅ ᴍᴇ ᴀɢᴀɪɴ !",
